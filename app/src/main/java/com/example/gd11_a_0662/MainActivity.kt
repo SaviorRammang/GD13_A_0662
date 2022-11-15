@@ -73,10 +73,13 @@ class MainActivity : AppCompatActivity() {
         val stringRequest: StringRequest = object :
             StringRequest(Method.GET, MahasiswaApi.GET_ALL_URL, Response.Listener { response ->
                 val gson = Gson()
+                var mahasiswa : Array<Mahasiswa> = gson.fromJson(response, Array<Mahasiswa>::class.java)
 
-                val mahasiswa : Array<Mahasiswa> = gson.fromJson(response, Array<Mahasiswa>::class.java)
+                adapter!!.setMahasiswaList(mahasiswa)
+                adapter!!.filter.filter(svMahasiswa!!.query)
+                srMahasiwa!!.isRefreshing = false
 
-                if (mahasiswa != null)
+                if (!mahasiswa.isEmpty() )
                     Toast.makeText(this@MainActivity, "Data Berhasil Diambil", Toast.LENGTH_SHORT).show()
                 else
                     Toast.makeText(this@MainActivity, "Data Kosong!", Toast.LENGTH_SHORT).show()
