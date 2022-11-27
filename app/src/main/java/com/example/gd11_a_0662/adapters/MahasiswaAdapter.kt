@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.example.gd11_a_0662.AddEditActivity
 import com.example.gd11_a_0662.MainActivity
